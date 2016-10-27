@@ -7,6 +7,7 @@ class PokemonsController < ApplicationController
     redirect_to root_path
   end
 
+
   def damage
     @pokemon = Pokemon.find(params[:id])
     if @pokemon.health != 0
@@ -33,7 +34,7 @@ class PokemonsController < ApplicationController
   end
 
 
-  def create
+  def make
     @pokemon = Pokemon.new(name: params[:pokemon][:name], trainer: current_trainer, health: 100, level: 1)
     if @pokemon.save
           redirect_to trainer_path(id: @pokemon.trainer)
